@@ -1,0 +1,15 @@
+{
+  "name": "nsslib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./example/index.js",
+  "scripts": {
+    "start": "node-gyp configure build && npm run example",
+    "install": "node-gyp rebuild",
+    "example": "node ./example/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gypfile": true
+}
