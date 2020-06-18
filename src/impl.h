@@ -23,5 +23,9 @@ insertSlot(napi_env env, napi_callback_info info);
 napi_value 
 emitSignal(napi_env env, napi_callback_info info);
 
+void
+registerFunction( napi_env env, napi_value exports, 
+                  napi_value (*nativeFunction)(napi_env env, napi_callback_info info), 
+                  char *nativeFunctionName);
 
 #endif // __IMPLEMENTATIONS__

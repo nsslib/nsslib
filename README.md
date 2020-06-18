@@ -1,4 +1,5 @@
-# Node Signal Slot Library
+# Node Signals & Slots Library
+![nsslib](https://firebasestorage.googleapis.com/v0/b/cypchat-227c2.appspot.com/o/Libraries%2Fnsslib%2Fnsslib.png?alt=media&token=edd9e42d-e0dd-4e4d-89d2-03f1d8dbdfc8 "nsslib")
 
 ## What It Solves In JavaScript World
 
