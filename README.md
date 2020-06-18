@@ -1,7 +1,7 @@
 # Node Signals & Slots Library
 ![nsslib](https://firebasestorage.googleapis.com/v0/b/cypchat-227c2.appspot.com/o/Libraries%2Fnsslib%2Fnsslib.png?alt=media&token=edd9e42d-e0dd-4e4d-89d2-03f1d8dbdfc8 "nsslib")
 
-## What It Solves In JavaScript World
+## What It Solves In JavaScript World ?
 
 1. We don't need third party state managers or observers.
 2. We can trigger any method in the same process whenever a value changed.
@@ -21,3 +21,17 @@ nss.insertSlot('loading', (val) => console.log(val)); // Also set another liste
 nss.emitSignal('loading', true); // Emit a signal from anywhere to trigger listener methods
 
 ```
+
+## How To Test ?
+
+Clone this repo, then
+> npm start
+
+This command will bundle the C source code and run the example javascript functions. For other commands, please refer package.json script section.  
+
+## Folders
+- C source codes are found under <code>src</code> folder.
+- Javascript examples are found under <code>example</code> folder.
+- Docs are found under <code>docs</code> folder.
+
+## How To Contribute ?
