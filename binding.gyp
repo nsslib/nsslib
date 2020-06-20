@@ -1,9 +1,11 @@
 {
-    "targets": [{
-        "target_name": "nss",
-        "sources": [ 
-            "./src/nss.c",
-            "./src/impl.c" 
-        ]
-    }]
+    "targets": [
+        {
+            "target_name": "nss",
+            "sources": [ 
+                "./src/nss.c",
+                "./src/impl.c" 
+            ]
+        }
+    ]
 }

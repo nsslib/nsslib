@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node-gyp configure build && npm run example",
     "install": "node-gyp rebuild",
-    "example": "node ./example/index.js"
+    "example": "node ./example/index.js",
+    "xcode-debug": "node-gyp configure --debug -- -f xcode"
   },
   "keywords": [],
   "author": "",
