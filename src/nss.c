@@ -24,8 +24,8 @@ registerMethods(napi_env env,
 
 napi_value Init(napi_env env, napi_value exports) 
 {
-  signal_db_t *signal_db = calloc(1, sizeof(signal_db_t)); // we have create one signal database to be filled up later.
-    
+  allocateTable();
+  
   registerMethods(env, exports, &initValue, "initValue");
   registerMethods(env, exports, &insertSlot, "insertSlot");
   registerMethods(env, exports, &emitSignal, "emitSignal");
