@@ -9,6 +9,7 @@ const listeners = require('./statelisteners')
 function initValues() {
     nss.initValue('loading', false); // initial value of loading is false.
     nss.initValue('name', 'john'); // initial value of name is john.
+    nss.initValue('surname', 'doe'); // initial value of surname is Doe.
     nss.initValue('identity', {name: 'john', surname: 'Doe'}); // initial value of name is john.
 }
 
