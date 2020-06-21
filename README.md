@@ -6,12 +6,11 @@
 1. You can trigger any method in the same process whenever a value changed.
 2. We bring Qt Framework Signals & Slots logic to NodeJs, you can see how it works via [Qt Signals & Slots](https://doc.qt.io/qt-5/signalsandslots.html).
 3. This will be much faster and performance focused then any other js based observers.
-4. In OOP programming this feature is not a requirement, this is a basic. NodeJs Core functionality should implement a Signals & Slots logic.
 
 ## Main Methods
 ```js
 
-const nss = require('nss');
+const nss = require('nss'); // for now call it require('path/to/build/Release/nss');
 
 nss.initValue('loading', false); // initialize the value
 
@@ -43,7 +42,4 @@ Here is how you will prepare your Xcode env to run your JavaScript codes. [Debug
 - Docs are found under <code>docs</code> folder.
 
 ## Where To Use It ?
-In any project which ever is powered by NodeJs. some examples are ElectronJs, NodeJs BackEnd Development, Embedded NodeJs projects etc.
-
-## How To Use It Under Existing Project ?
-Currently main NodeJs repo doesn't include the library. Because of that you should implement it by your self.
+In any project which ever is powered by NodeJs. some examples are ElectronJs, NodeJs BackEnd Development, Embedded NodeJs projects, Mobile Frameworks(Don't forget to make manual changes) etc.

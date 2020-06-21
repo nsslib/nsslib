@@ -1,6 +1,6 @@
 /**
  * Node Signal Slot has 3 native methods
- * @nss {init, register, emit}
+ * @nss {initValues, insertSlot, emitSignal}
  */
 
 const nss = require('../build/Release/nss');
