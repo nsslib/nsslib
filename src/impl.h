@@ -1,6 +1,7 @@
 #ifndef __IMPLEMENTATIONS__
 #define __IMPLEMENTATIONS__
 #include <node_api.h>
+#define MAX_SIGNAL_SIZE 1024 // max 1024 signals allowed
 
 typedef struct _signal_database_t signal_database_t;
 typedef struct _signal_table_t signal_table_t;
@@ -10,6 +11,7 @@ typedef struct _slots_t slots_t;
 // and each signal tables also a linked list in each others
 struct _signal_database_t {
   signal_table_t *head;
+  char **signal_names; // we registers signal names into a two dimensional array
   int table_count; // how many tables are in it
 };
 
