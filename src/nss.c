@@ -1,4 +1,5 @@
 #include "./impl.h"
+#include "./errorhandling.h"
 #include <node_api.h>
 #include <stdlib.h>
 
@@ -13,12 +14,12 @@ registerMethods(napi_env env,
 
   status = napi_create_function(env, NULL, 0, nativeFunction, NULL, &fn);
   if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Unable to wrap native function");
+    raiseError(env, UNABLE_TO_WRAP_NATIVE, NULL);
   }
 
   status = napi_set_named_property(env, exports, nativeFunctionName, fn);
   if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Unable to populate exports");
+    raiseError(env, UNABLE_TO_POPULATE, NULL);
   }
 }
 
