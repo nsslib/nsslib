@@ -14,7 +14,7 @@ function initValues() {
 }
 
 function registerFunctions() {
-    nss.insertSlot('loading', listeners.loading); // loading function is registered into nss to listen changes on 'loading' value.
+    //nss.insertSlot('loading', listeners.loading); // loading function is registered into nss to listen changes on 'loading' value.
     nss.insertSlot('name', listeners.didNameChange); // didNameChange function is registered into nss to listen changes on 'name' value.
     nss.insertSlot('name', listeners.didNameChangeForWhat); // didNameChangeForWhat function is registered into nss too, to listen changes on 'name' value. This shows we can register multiple slots to listen one value change.
 }

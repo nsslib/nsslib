@@ -15,6 +15,13 @@ allocateTable(void)
   signal_database->signal_names = (char**)malloc(MAX_SIGNAL_SIZE * sizeof(char)); // allocate 2 dimensional array
 }
 
+void
+deallocateTable(void)
+{
+  free(signal_database->signal_names);
+  free(signal_database);
+}
+
 // MARK: - Usefull methods for NAPI values. converting js to C or C to js etc.
 size_t
 getUTF8StringLength(napi_env env, napi_value arg)
@@ -75,8 +82,48 @@ checkSignalExist(char *name)
 }
 
 void
-registerSlotIntoSignalTable(napi_env env, char *signal_name, napi_value val)
+registerSlotIntoSignalTable(napi_env env, char *signal_name, napi_value fn)
 {
+  if (signal_database->table_count > 0) {
+    
+    signal_table_t *table = NULL;
+    signal_table_t *signal_table_head = signal_database->head; // take the last registered signal_table
+    slots_t *slot = malloc(sizeof(slots_t));
+    
+    // first of all find the relevant signal table for slot registration
+    while (signal_table_head) {
+      if(strcmp(signal_table_head->name, signal_name) == 0) {
+        table = signal_table_head;
+      }
+      signal_table_head = signal_table_head->prev;
+    }
+    
+    // If the signal table not exist then raise error.
+    if(!table) {
+      raiseError(env, SIGNAL_NOT_EXIST, signal_name);
+    } else {
+      // check if slot is a function ? slots should be function...
+      if(typeOfNapiValue(env, fn) == napi_function) {
+        slot->fn = fn;
+      } else {
+        raiseError(env, SLOT_VAL_SHOULD_A_FUNC, NULL);
+      }
+
+      if(table->slot_head) {
+        // if there is alread registered slots...
+        slot->prev = table->slot_head;
+      } else {
+        // if there are no any registered slots...
+        slot->prev = NULL;
+      }
+      table->slot_head = slot;
+      table->slots = slot;
+      table->slot_count++;
+    }
+    
+  } else {
+    raiseError(env, SIGNAL_DB_EMPTY, NULL);
+  }
   
 }
 
